@@ -65,10 +65,10 @@ public class CreditController {
         }
     }
 
-    @GetMapping(value = {"/getList"})
+   @GetMapping(value = {"/getList"})
     public String creditList(Model model) {
-        model.addAttribute("credit", creditService.getCredits());
-        return "creditList";
+       
+        return "form";
     }
 
     @PostMapping("/create/credit")
