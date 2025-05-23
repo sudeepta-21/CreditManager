@@ -54,12 +54,11 @@ public class CreditController {
     }
 
     @PostMapping("/createCredit")
-    public String creditSubmit(@ModelAttribute Credit credit, Model model) {
-
-        if (this.creditService.validate(credit)) {
-            this.creditService.createCredit(credit);
-            model.addAttribute("credit", credit);
-            return "result";
+    public String creditSubmit(@ModelAttribute Credit creditForm, Model model) {
+    
+        if (this.creditService.validate(creditForm)) {
+            model.addAttribute("errorMessage", "Error occurred in submission");
+            return "form";
         } else {
             model.addAttribute("errorMessage", errorMessage);
             return "form";
